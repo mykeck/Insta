@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+
+
+
+{% block content %}
+<br>
+<br>
+<br>
+
+
+ <div class="container">
+   <body style="background-color:#E6E6FA">
+
+     <div class="row">
+       <div class=col-md-8>
+     <img src="{{image.image.url}}" align="left|right|middle|top|bottom" class="img-responsive" alt="">
+   </div>
+
+   <div class=col-md-4>
+
+      <strong>{{image.profile}}</strong>
+     {% autoescape on %}
+     {{image.caption| safe}}
+    {% endautoescape %}
+    <br>
+
+    <strong>Comments</strong>
+
+    {% for comment in comments %}
+
+    <ul>
+
+    <p><li>{{comment.comment}}</p></li>
+
+  </ul>
+
+
+    {% endfor %}
+    <br>
+   <h4 class="btn btn-lg"><i class="glyphicon glyphicon-heart-empty" style="font-size:24px;color:black;"></i></h4>  {{image.likes}}
+
+  </div>
+
+  </div>
+
+   <div class="row">
+     <h1 class="text-center">{{image.name}}</h1>
+   </div>
+
+
+
+
+</body>
+</div>
+
+
+ {% endblock %}
