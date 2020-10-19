@@ -1,0 +1,59 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+
+
+<br>
+<br>
+<br>
+<div class="container">
+  <body style="background-color:#FCFDFE">
+
+
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <style>
+      img.radius {
+      border-radius: 70%;
+      }
+      </style>
+          <img src="{{profile.profile_photo.url}}" class="radius" class="img-responsive" alt="Image" style="width:200px;height:200px;">
+    <br>
+    <br>
+    <p>{{profile.bio}}</p>
+
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <p>{{profile.user}}
+    <a  data-toggle="modal" data-target="#settings" aria-hidden="true" ><span class="glyphicon glyphicon-cog"></span></a></p>
+
+
+
+
+
+  </div>
+</div>
+<br>
+
+  <div class="row">
+  <p class="text-center"><strong>Your posts</strong></p>
+
+    {% for photo in photos %}
+
+    <div class="col-md-4">
+
+      <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
+
+      </div>
+
+
+    {% empty %}
+    <h2 class="text-center">There are no photos yet</h2>
+
+    {% endfor %}
+  </div>
+
+</body>
+</div>
+{% endblock %}

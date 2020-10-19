@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+
+
+
+<div class="container">
+  <br>
+  <br>
+  <br>
+
+  <h1>Profile</h1>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <img src="{{profile.profile_photo.url}}" class="img-responsive" alt="Image">
+    <p>{{profile.bio}}</p>
+
+
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <p>{{profile.user}}</p>
+    <p><a href="#"><button type="button" class="btn btn-light">Follow</button></a></p>
+
+    <!-- <p><a href="{% url 'create-profile' %}"><button type="button" class="btn btn-light">Edit profile</button></a></p> -->
+
+
+  </div>
+</div>
+
+  <div class="row">
+    {% for photo in photos %}
+
+<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+
+      <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
+
+      </div>
+    </div>
+
+    {% empty %}
+  <div class="row">
+    <h2 class="text-center">There are no photos yet</h2>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
