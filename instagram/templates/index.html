@@ -3,3 +3,80 @@
 
 {% block content %}
 {{block.super}}
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+<body style="background-color:#F2F3F4">
+    <div class="row">
+
+  {% for photo in photos %}
+      <div class="col-md-8">
+
+
+        <div class="panel panel-default">
+      <div class="panel panel-header">
+      <p>  <img src="{{profile.profile_photo.url}}" class="radius" class="img-responsive" alt="Image" style="border-radius: 90% ; padding: 0.15rem;  width: 70px; background: linear-gradient(to right bottom, #d82c66, #c92e3b, #e15e43, #f3813f, #ffa63e);">
+  <strong>{{photo.profile}}</strong></p>
+
+
+    </div>
+      <div class="panel panel-body">
+
+      <a href="{% url 'imagedetails' photo.id %}">  <img src="{{photo.image.url}}" class="img-responsive" alt="Image" style="width:800px;height:800px;"></a>
+
+
+      <h4 class="btn btn-lg"><i class="glyphicon glyphicon-heart-empty" style="font-size:24px;color:black;"></i></h4>{{photo.likes}}
+          <a href="{%url 'new-comment'%}"> <h4 class="btn btn-lg" ><i class="glyphicon glyphicon-comment" style="font-size:24px;color:black;"></i> </h4> </a>{{photo.comments}}
+
+          <br>
+
+      <p>{{photo.caption}}</p>
+
+
+    </div>
+      <div class="panel panel-footer">
+
+
+
+
+      </div>
+
+    </div>
+
+    </div>
+
+
+
+  {% empty %}
+  <h2 class="text-center">There are no photos yet</h2>
+
+  {% endfor %}
+
+
+
+<!-- <div align="center"> -->
+<b><h3 class="text-center">Suggested users to follow</h3></b>
+
+  <pre class="pre-scrollable" style="max-height: 150px;" align="">
+
+    {% for profile in profiles %}
+    <b>{{profile.user}} </b><b style="float:right;color:#3897f0;">Follow</b>
+
+    {% endfor %}
+    <!-- <button type="button" class="btn btn-primary">Follow</button> -->
+  </pre>
+<!-- </div> -->
+
+</div>
+
+
+
+
+</body>
+</div>
+
+{% endblock %}
