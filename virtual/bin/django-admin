@@ -1,4 +1,4 @@
-#!/home/moringa/Documents/moringa-school-projects/Core/Django/instagram/virtual/bin/python
+#!/home/moringa/Documents/moringa-school-projects/Core/Django/instagram/virtual/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

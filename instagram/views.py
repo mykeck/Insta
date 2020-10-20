@@ -1,10 +1,12 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 from .models import Image,Profile,Comment
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import NewImageForm,NewProfileForm,NewCommentForm
 
-# Create your views he
+# Create your views here.
+@login_required(login_url='/accounts/login/')
 def index(request):
     current_user=request.user
 
