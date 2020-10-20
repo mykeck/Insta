@@ -4,7 +4,10 @@ from .models import Image,Profile,Comment
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import NewImageForm,NewProfileForm,NewCommentForm
 
-# Create your views here.
+# Create your views he
+def index(request):
+    title ="welcome"
+    return render(request,'index.html',{"title":title})
 def imagedetails(request,image_id):
     comments=Comment.objects.filter(image_id=image_id)
 
@@ -20,8 +23,6 @@ def profiledetails(request,profile_id):
         profile = Profile.objects.get(id=profile_id)
     except ObjectDoesNotExist:
         message = "You haven't searched for any term"
-
-
     return render(request,"profiledetails.html",{"profile":profile})
 
 def new_image(request):
