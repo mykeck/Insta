@@ -6,8 +6,17 @@ from .forms import NewImageForm,NewProfileForm,NewCommentForm
 
 # Create your views he
 def index(request):
-    title ="welcome"
-    return render(request,'index.html',{"title":title})
+    current_user=request.user
+
+    photos=Image.get_photos()
+    comments=Comment.get_comments()
+    profiles = Profile.objects.all()
+
+
+    return render(request,'index.html',{"photos":photos,"profiles":profiles,"comments":comments})
+
+
+
 def imagedetails(request,image_id):
     comments=Comment.objects.filter(image_id=image_id)
 
